@@ -1,0 +1,34 @@
+// worker.full.js
+// This is the REAL embedding worker.
+// For now this is a skeleton so your Bubble plugin loads correctly.
+
+postMessage({ type: "log", message: "worker.full.js loaded (skeleton)" });
+
+onmessage = async (e) => {
+  const msg = e.data;
+
+  if (msg.type === "ping") {
+    postMessage({ type: "pong", id: msg.id });
+    return;
+  }
+
+  if (msg.type === "load_model") {
+    // Later: load ONNX or transformers runtime + files
+    postMessage({
+      type: "model_ready",
+      model_id: msg.model_id || "placeholder-model",
+      mode: "skeleton"
+    });
+    return;
+  }
+
+  if (msg.type === "embed") {
+    postMessage({
+      type: "error",
+      error: "Real embedding not implemented yet in skeleton"
+    });
+    return;
+  }
+
+  postMessage({ type: "error", error: "Unknown message type" });
+};
