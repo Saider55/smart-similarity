@@ -1,4 +1,13 @@
-/* 
+/*
   Access-Control-Allow-Origin: *
-  Access-Control-Allow-Headers: *
-  Access-Control-Allow-Methods: *
+  Cross-Origin-Embedder-Policy: require-corp
+  Cross-Origin-Opener-Policy: same-origin
+
+/worker.full.js
+  Content-Type: application/javascript
+
+/worker.fake.js
+  Content-Type: application/javascript
+
+/transformers.min.js
+  Content-Type: application/javascript
